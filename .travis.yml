@@ -9,9 +9,9 @@ env:
     - COMMIT=${TRAVIS_COMMIT::8}
 
 script:
-  - docker login -u $DOCKER_USER -p $gitlab-ci
-  - export REPO=AlexSkibaYojji/docker-react-native-fastlane
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker login -u $DOCKER_USER -p $REGISTRY_TOKEN
+#   - export REPO=AlexSkibaYojji/docker-react-native-fastlane
+#   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -t $REPO .
 
 after_success:
