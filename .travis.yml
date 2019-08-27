@@ -10,7 +10,7 @@ env:
 
 script:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - export REPO=docker-react-native-fastlane
+  - export REPO=alexskiba/docker-react-native-fastlane
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -t $REPO:$TAG .
 
